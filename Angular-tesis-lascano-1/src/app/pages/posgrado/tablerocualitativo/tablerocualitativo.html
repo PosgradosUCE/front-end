@@ -1,0 +1,759 @@
+<div class="uk-card uk-card-default uk-card-body">
+  <h3 class="uk-card-title">
+       <span class="md-title" >
+         <i class="fas fa-calculator fa-lg" style="color:#4285F4;"></i> Tablero cualitativo
+       </span>
+  </h3>
+
+  <table border="1">
+          <tbody>
+          <tr>
+            <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #contexto">Open</button>
+
+            <td>ORGANIZACION</td>
+            <td>CONSTITUCION</td>
+            <td>Contexto</td>
+            <td>
+              <input type='text' nbInput fullWidth placeholder='contexto1' [(ngModel)]='contexto1' style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='contexto2' [(ngModel)]='contexto2' style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='contexto3' [(ngModel)]='contexto3' style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='contexto4' [(ngModel)]='contexto4' style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='contexto5' [(ngModel)]='contexto5' style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='contexto6' [(ngModel)]='contexto6' style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='contexto7' [(ngModel)]='contexto7' style="width: 80px;">
+              <button *ngIf="authService.hasRole('ROLE_ADMIN');" (click)='contextoEv()' style="width: 80px;">Calcular</button>
+            </td>
+            <td>
+              <p>
+                {{contextoEvs['promedioContext']}}
+              </p>
+            </td>
+            <td>
+              <img src="{{semaforoaContexto}}" alt="" style="height: 120px; width: 80px;">
+            </td>
+          </tr>
+          <tr>
+            <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #gestAcademica">Open</button>
+
+            <td>ORGANIZACION</td>
+            <td>CONSTITUCION</td>
+            <td>Gestion Academica</td>
+            <td>
+              <input type='text' nbInput fullWidth placeholder='gestionAcademica' [(ngModel)]='gestionAcademica1'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='gestionAcademica' [(ngModel)]='gestionAcademica2'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='gestionAcademica' [(ngModel)]='gestionAcademica3'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='gestionAcademica' [(ngModel)]='gestionAcademica4'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='gestionAcademica' [(ngModel)]='gestionAcademica5'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='gestionAcademica' [(ngModel)]='gestionAcademica6'
+                     style="width: 80px;">
+              <button *ngIf="authService.hasRole('ROLE_ADMIN');" (click)='gestionAcademica()' style="width: 80px;">Calcular</button>
+
+            </td>
+            <td>
+              <p>
+                {{gestionAcademicas['promedioGestionAcademica']}}
+              </p>
+            </td>
+            <td>
+              <img src="{{semaforoGestion}}" alt="" style="height: 120px; width: 80px;">
+            </td>
+          </tr>
+          <tr>
+            <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #estPrograma">Open</button>
+
+            <td>ORGANIZACION</td>
+            <td>CONSTITUCION</td>
+            <td>Estructura del Programa</td>
+            <td>
+              <input type='text' nbInput fullWidth placeholder='EstructuraPrograma' [(ngModel)]='estructuraPrograma1'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='EstructuraPrograma' [(ngModel)]='estructuraPrograma2'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='EstructuraPrograma' [(ngModel)]='estructuraPrograma3'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='EstructuraPrograma' [(ngModel)]='estructuraPrograma4'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='EstructuraPrograma' [(ngModel)]='estructuraPrograma5'
+                     style="width: 80px;">
+              <button *ngIf="authService.hasRole('ROLE_ADMIN');" (click)='estructuraPrograma()' style="width: 80px;">Calcular</button>
+
+            </td>
+            <td>
+              <p>
+                {{estructuraProgramas['promedioEstructuraPrograma']}}
+              </p>
+            </td>
+            <td>
+              <img src="{{semaforoEstructuraPrograma}}" alt="" style="height: 120px; width: 80px;">
+            </td>
+          </tr>
+          <tr>
+            <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #politAdmision">Open</button>
+
+            <td>ORGANIZACION</td>
+            <td>POLITICAS Y PROCEDIMIENTOS</td>
+            <td>Politicas de Admision</td>
+            <td>
+              <input type='text' nbInput fullWidth placeholder='PoliticasAdmision' [(ngModel)]='politicasAdmision1'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='PoliticasAdmision' [(ngModel)]='politicasAdmision2'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='PoliticasAdmision' [(ngModel)]='politicasAdmision3'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='PoliticasAdmision' [(ngModel)]='politicasAdmision4'
+                     style="width: 80px;">
+              <button *ngIf="authService.hasRole('ROLE_ADMIN');" (click)='politicasAdmision()' style="width: 80px;">Calcular</button>
+            </td>
+            <td>
+              <p>
+                {{politicasAdmisions['promedioPoliticasAdmision']}}
+              </p>
+            </td>
+            <td>
+              <img src="{{semaforoPoliticasAdmision}}" alt="" style="height: 120px; width: 80px;">
+            </td>
+          </tr>
+          <tr>
+            <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #politTitulacion">Open</button>
+
+            <td>ORGANIZACION</td>
+            <td>POLITICAS Y PROCEDIMIENTOS</td>
+            <td>Politicas de Titulacion</td>
+            <td>
+              <input type='text' nbInput fullWidth placeholder='PoliticasTitulacion' [(ngModel)]='politicasTitulacion1'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='PoliticasTitulacion' [(ngModel)]='politicasTitulacion2'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='PoliticasTitulacion' [(ngModel)]='politicasTitulacion3'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='PoliticasTitulacion' [(ngModel)]='politicasTitulacion4'
+                     style="width: 80px;">
+              <button *ngIf="authService.hasRole('ROLE_ADMIN');" (click)='politicasTitulacion()' style="width: 80px;">Calcular</button>
+            </td>
+            <td>
+              <p>
+                {{politicasTitulacions['promedioPoliticasTitulacion']}}
+              </p>
+            </td>
+            <td>
+              <img src="{{semaforoPoliticasTitulacion}}" alt="" style="height: 120px; width: 80px;">
+            </td>
+          </tr>
+          <tr>
+            <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #sisBecas">Open</button>
+
+            <td>ORGANIZACION</td>
+            <td>POLITICAS Y PROCEDIMIENTOS</td>
+            <td>Sistemas de Becas</td>
+            <td>
+              <input type='text' nbInput fullWidth placeholder='SistemasBecas' [(ngModel)]='sistemasBecas1'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='SistemasBecas' [(ngModel)]='sistemasBecas2'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='SistemasBecas' [(ngModel)]='sistemasBecas3'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='SistemasBecas' [(ngModel)]='sistemasBecas4'
+                     style="width: 80px;">
+              <button *ngIf="authService.hasRole('ROLE_ADMIN');" (click)='sistemasBecas()' style="width: 80px;">Calcular</button>
+            </td>
+            <td>
+              <p>
+                {{sistemasBecass['promedioSistemasBecas']}}
+              </p>
+            </td>
+            <td>
+              <img src="{{semaforoSistemasBecas}}" alt="" style="height: 120px; width: 80px;">
+            </td>
+          </tr>
+          <tr>
+            <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #segGraduados">Open</button>
+
+            <td>ORGANIZACION</td>
+            <td>POLITICAS Y PROCEDIMIENTOS</td>
+            <td>Seguimiento a Graduados</td>
+            <td>
+              <input type='text' nbInput fullWidth placeholder='SeguimientoGraduados' [(ngModel)]='seguimientoGraduados1'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='SeguimientoGraduados' [(ngModel)]='seguimientoGraduados2'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='SeguimientoGraduados' [(ngModel)]='seguimientoGraduados3'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='SeguimientoGraduados' [(ngModel)]='seguimientoGraduados4'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='SeguimientoGraduados' [(ngModel)]='seguimientoGraduados5'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='SeguimientoGraduados' [(ngModel)]='seguimientoGraduados6'
+                     style="width: 80px;">
+              <button *ngIf="authService.hasRole('ROLE_ADMIN');" (click)='seguimientoGraduados()' style="width: 80px;">Calcular</button>
+            </td>
+            <td>
+              <p>
+                {{seguimientoGraduadoss['promedioSeguimientoGraduados']}}
+              </p>
+            </td>
+            <td>
+              <img src="{{semaforoSeguimientoGraduados}}" alt="" style="height: 120px; width: 80px;">
+            </td>
+          </tr>
+          <tr>
+            <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #perfEgreso">Open</button>
+
+            <td>PROGRAMA ACADEMICO</td>
+            <td>DISEÑO</td>
+            <td>Perfil Egreso</td>
+            <td>
+              <input type='text' nbInput fullWidth placeholder='PerfilEgreso' [(ngModel)]='perfilEgreso1'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='PerfilEgreso' [(ngModel)]='perfilEgreso2'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='PerfilEgreso' [(ngModel)]='perfilEgreso3'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='PerfilEgreso' [(ngModel)]='perfilEgreso4'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='PerfilEgreso' [(ngModel)]='perfilEgreso5'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='PerfilEgreso' [(ngModel)]='perfilEgreso6'
+                     style="width: 80px;">
+              <button *ngIf="authService.hasRole('ROLE_ADMIN');" (click)='perfilEgreso()' style="width: 80px;">Calcular</button>
+            </td>
+            <td>
+              <p>
+                {{perfilEgresos['promedioPerfilEgreso']}}
+              </p>
+            </td>
+            <td>
+              <img src="{{semaforoPerfilEgreso}}" alt="" style="height: 120px; width: 80px;">
+            </td>
+          </tr>
+          <tr>
+            <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #planEstudios">Open</button>
+
+            <td>PROGRAMA ACADEMICO</td>
+            <td>DISEÑO</td>
+            <td>Plan de Estudios</td>
+            <td>
+              <input type='text' nbInput fullWidth placeholder='PlanEstudios' [(ngModel)]='planEstudios1'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='PlanEstudios' [(ngModel)]='planEstudios2'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='PlanEstudios' [(ngModel)]='planEstudios3'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='PlanEstudios' [(ngModel)]='planEstudios4'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='PlanEstudios' [(ngModel)]='planEstudios5'
+                     style="width: 80px;">
+              <button *ngIf="authService.hasRole('ROLE_ADMIN');" (click)='planEstudios()' style="width: 80px;">Calcular</button>
+            </td>
+            <td>
+              <p>
+                {{planEstudioss['promedioPlanEstudios']}}
+              </p>
+            </td>
+            <td>
+              <img src="{{semaforoPlanEstudios}}" alt="" style="height: 120px; width: 80px;">
+            </td>
+          </tr>
+          <tr>
+            <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #planifCurricular">Open</button>
+
+            <td>PROGRAMA ACADEMICO</td>
+            <td>IMPLEMENTACION</td>
+            <td>Plan de Microcurricular</td>
+            <td>
+              <input type='text' nbInput fullWidth placeholder='PlanMicrocurricular' [(ngModel)]='planMicrocurricular1'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='PlanMicrocurricular' [(ngModel)]='planMicrocurricular2'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='PlanMicrocurricular' [(ngModel)]='planMicrocurricular3'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='PlanMicrocurricular' [(ngModel)]='planMicrocurricular4'
+                     style="width: 80px;">
+              <button *ngIf="authService.hasRole('ROLE_ADMIN');" (click)='planMicrocurricular()' style="width: 80px;">Calcular</button>
+            </td>
+            <td>
+              <p>
+                {{planMicrocurriculars['promedioPlanMicrocurricular']}}
+              </p>
+            </td>
+            <td>
+              <img src="{{semaforoPlanMicrocurricular}}" alt="" style="height: 120px; width: 80px;">
+            </td>
+          </tr>
+          <tr>
+            <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #evseguimiento">Open</button>
+
+            <td>PROGRAMA ACADEMICO</td>
+            <td>IMPLEMENTACION</td>
+            <td>Evaluacion y Seguimiento</td>
+            <td>
+              <input type='text' nbInput fullWidth placeholder='EvaluacionSeguimiento' [(ngModel)]='evaluacionSeguimiento1'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='EvaluacionSeguimiento' [(ngModel)]='evaluacionSeguimiento2'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='EvaluacionSeguimiento' [(ngModel)]='evaluacionSeguimiento3'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='EvaluacionSeguimiento' [(ngModel)]='evaluacionSeguimiento4'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='EvaluacionSeguimiento' [(ngModel)]='evaluacionSeguimiento5'
+                     style="width: 80px;">
+              <button *ngIf="authService.hasRole('ROLE_ADMIN');" (click)='evaluacionSeguimiento()' style="width: 80px;">Calcular</button>
+            </td>
+            <td>
+              <p>
+                {{evaluacionSeguimientos['promedioEvaluacionSeguimiento']}}
+              </p>
+            </td>
+            <td>
+              <img src="{{semaforoEvaluacionSeguimiento}}" alt="" style="height: 120px; width: 80px;">
+            </td>
+          </tr>
+          <tr>
+            <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #grupInvestigacion">Open</button>
+
+            <td>IDI</td>
+            <td>CONDICIONES</td>
+            <td>Grupos de Investigacion</td>
+            <td>
+              <input type='text' nbInput fullWidth placeholder='GruposInvestigacion' [(ngModel)]='gruposInvestigacion1'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='GruposInvestigacion' [(ngModel)]='gruposInvestigacion2'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='GruposInvestigacion' [(ngModel)]='gruposInvestigacion3'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='GruposInvestigacion' [(ngModel)]='gruposInvestigacion4'
+                     style="width: 80px;">
+              <button *ngIf="authService.hasRole('ROLE_ADMIN');" (click)='gruposInvestigacion()' style="width: 80px;">Calcular</button>
+            </td>
+            <td>
+              <p>
+                {{gruposInvestigacions['promedioGruposInvestigacion']}}
+              </p>
+            </td>
+            <td>
+              <img src="{{semaforoGruposInvestigacion}}" alt="" style="height: 120px; width: 80px;">
+            </td>
+          </tr>
+          <tr>
+            <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #bibvirrepdig">Open</button>
+
+            <td>AMBIENTE INSTITUCIONAL</td>
+            <td>RECURSOS DE APRENDIZAJE</td>
+            <td>Biblioteca virtual y repositorios digitales</td>
+            <td>
+              <input type='text' nbInput fullWidth placeholder='BibvirrepDig' [(ngModel)]='bibvirrepDig1'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='BibvirrepDig' [(ngModel)]='bibvirrepDig2'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='BibvirrepDig' [(ngModel)]='bibvirrepDig3'
+                     style="width: 80px;">
+              <button *ngIf="authService.hasRole('ROLE_ADMIN');" (click)='bibvirrepDig()' style="width: 80px;">Calcular</button>
+            </td>
+            <td>
+              <p>
+                {{bibvirrepDigs['promedioBibvirrepDig1']}}
+              </p>
+            </td>
+            <td>
+              <img src="{{semaforoBibvirrepDig}}" alt="" style="height: 120px; width: 80px;">
+            </td>
+          </tr>
+          <tr>
+            <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #movAcademica">Open</button>
+
+            <td>AMBIENTE INSTITUCIONAL</td>
+            <td>REDES Y COOPERACION</td>
+            <td>Movilidad Academica</td>
+            <td>
+              <input type='text' nbInput fullWidth placeholder='Movilidadacademica' [(ngModel)]='movilidadacademica1'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='Movilidadacademica' [(ngModel)]='movilidadacademica2'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='Movilidadacademica' [(ngModel)]='movilidadacademica3'
+                     style="width: 80px;">
+              <button *ngIf="authService.hasRole('ROLE_ADMIN');" (click)='movilidadacademica()' style="width: 80px;">Calcular</button>
+            </td>
+            <td>
+              <p>
+                {{movilidadacademicas['promedioMovilidadAcademica']}}
+              </p>
+            </td>
+            <td>
+              <img src="{{semaforoMovilidadacademica}}" alt="" style="height: 120px; width: 80px;">
+            </td>
+          </tr>
+          <tr>
+            <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #partRedes">Open</button>
+
+            <td>AMBIENTE INSTITUCIONAL</td>
+            <td>REDES Y COOPERACION</td>
+            <td>Participacion Redes</td>
+            <td>
+              <input type='text' nbInput fullWidth placeholder='SemaforoParticipacionRedes'
+                     [(ngModel)]='participacionRedes1'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='SemaforoParticipacionRedes'
+                     [(ngModel)]='participacionRedes2'
+                     style="width: 80px;">
+              <input type='text' nbInput fullWidth placeholder='SemaforoParticipacionRedes'
+                     [(ngModel)]='participacionRedes3'
+                     style="width: 80px;">
+              <button *ngIf="authService.hasRole('ROLE_ADMIN');" (click)='participacionRedes()' style="width: 80px;">Calcular</button>
+            </td>
+            <td>
+              <p>
+                {{participacionRedess['promedioParticipacionRedes']}}
+              </p>
+            </td>
+            <td>
+              <img src="{{semaforoParticipacionRedes}}" alt="" style="height: 120px; width: 80px;">
+            </td>
+          </tr>
+          </tbody>
+        </table>
+</div>
+<div id="contexto" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+    <h2 class="uk-modal-title">Contexto</h2>
+      <p>
+        1.- El programa de posgrado se articula sobre la base de grupos de investigacion y lineas de investigacion
+      </p>
+      <p>
+        2.- La mision y objetivos del programa son coherentes con la mision institucional, se enuncian de manera clara y concisa, y son conocidos por las autoridades y el personal academico vinculado
+      </p>
+      <p>
+        3.- Los objetivos y resultados esperados del programa son coherentes con la conformación de la planta académica, los grupos y líneas de investigación definidos, así como las demandas académico-profesionales del contexto y la planificación local, regional y/o nacional.
+      </p>
+      <p>
+        4.- Las autoridades definen prioridades y toman decisiones para el desarrollo y prospectiva del programa, en función de la misión y objetivos; en particular, al menos sobre la declaración de principios y funciones sustantivas contempladas para la educación superior: docencia, investigación y vinculación con la sociedad.
+      </p>
+      <p>
+        5.- El planteamiento y análisis de estrategias, así como los resultados esperados del programa , cuentan con la particiación de actores relevantes como, al menos, autoridades académicas, cuerpo académico y organizaciones profesionales públicas y/o privadas o científicas del contexto local, regional o nacional.
+      </p>
+      <p>
+        6.- El proyecto del programa tiene relación con las áreas prioritarias de la planificación nacional y el tipo de programa (I o II).
+      </p>
+      <p>
+        7.- Existen mecanismos o procedimientos que permiten la evaluación periódica del impacto del programa, de su misión, visión y objetivos, así como también el análisis de las necesidades del contexto laboral, académico y social.
+      </p>
+    <p class="uk-text-right">
+      <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+    </p>
+  </div>
+</div>
+
+<div id="gestAcademica" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+    <h2 class="uk-modal-title">Gestion Academica</h2>
+      <p>
+        1.- El programa cuenta como un representante legal que cumple los requisitos legales para ejercer su función y con un equipo de trabajo que planifica y apoya el desarrollo de actividades administrativas y académicas.
+      </p>
+      <p>
+        2.- Las funciones de la dirección/coordinación académica constan en el estatuto IES y son conocidas y cumplidas por quien las ejerce.
+      </p>
+      <p>
+        3.- Las funciones de la dirección/coordinación académica cuentan con políticas, reglamentos, normativas o procedimientos para la planificación y el seguimiento académico-curricular
+      </p>
+      <p>
+        4.- La dirección/coordinación presenta evidencias del cumplimiento de sus funciones conforme a la normativa.
+      </p>
+      <p>
+        5.- Existe un sistema de gestión con responsabilidades, funciones y atribuciones, claramente definidas.
+      </p>
+      <p>
+        6.- El programa cuenta con un coordinador que posee un grado académico igual o superior al nivel del programa, posee experiencia en gestión y es profesor titular a tiempo completo a la institución.
+      </p>
+    <p class="uk-text-right">
+      <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+    </p>
+  </div>
+</div>
+
+<div id="estPrograma" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+    <h2 class="uk-modal-title">Estructura del Programa</h2>
+      <p>
+        1.- Las líneas de investigación se estructuran en función de las fortalezas de la planta académica y en concordancia con la misión, visión y resultados esperados; así como el tipo de programa (I o II).
+      </p>
+      <p>
+        2.- Cada línea de investigación tiene uno o más grupos de investigación que se encuentran realizando proyectos de investigación, al menos, durante el periodo de evaluación.
+      </p>
+      <p>
+        3.- El programa está relacionado con una estructura académica acorde al tipo de programa (departamento de investigación, facultad, escuela u otro tipo de unidad académica).
+      </p>
+      <p>
+        4.- Las líneas de investigación están relacionadas con as áreas disciplinares del programa académico.
+      </p>
+      <p>
+        5.- Existen publicaciones, al menos el último año, en las líneas de investigación vigentes cuyos autores o coautores forman parte de los grupos de investigación activos.
+      </p>
+    <p class="uk-text-right">
+      <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+    </p>
+  </div>
+</div>
+
+<div id="politAdmision" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+    <h2 class="uk-modal-title">Politicas de Admision</h2>
+      <p>
+        1.- Las políticas de admisión se estructuran con base en un perfil de ingreso acorde al tipo de programa, mecanismos de postulación y selección, objetivos, nivelación y preparación previa, así como una planificación académica para las promociones de estudiantes que se admitirán.
+      </p>
+      <p>
+        2.- Los mecanismos de selección de estudiantes respetan los principios de igualdad de oportunidades y permiten el cumplimiento de los reglamentos y normativas del sistema de educación superior.
+      </p>
+      <p>
+        3.- Las políticas de admisión han sido socializadas con los departamentos y unidades académicas de la institución relacionados con el programa.
+      </p>
+      <p>
+        4.- Los mecanismos de nivelación y preparación previa de estudiantes se relacionan con el perfil de ingreso y los resultados de aprendizaje esperados en el programa académico.
+      </p>
+    <p class="uk-text-right">
+      <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+    </p>
+  </div>
+</div>
+
+<div id="politTitulacion" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+    <h2 class="uk-modal-title">Politicas de Titulacion</h2>
+      <p>
+        1.- Las políticas de graduación se estructuran sobre la base de perfil de egreso del programa, los mecanismos de asignación de asesores académicos (tutores, directores, coordinadores) y preparación del trabajo académico, en función del tipo del programa y los plazos establecidos reglamentariamente.
+      </p>
+      <p>
+        2.- Los mecanismos de graduación incluyen cursos o asignaturas enfocadas en el desarrollo de trabajos de investigación o el seguimiento al desempeño de los estudiantes en el examen complexivo.
+      </p>
+      <p>
+        3.- El proceso de revisión de trabajos de graduación está normado al interior de la institución y existen políticas y procedimientos para garantizar su implementación.
+      </p>
+      <p>
+        4.- Los mecanismos de graduación garantizan que los trabajos académicos o instrumentos de evaluación utilizados se relacionen con las líneas de investigación de la institución en las que participen profesores del programa, contribuyan al alcance de resultados de aprendizaje esperados (perfil de egreso) y puedan desembocar en la producción académica/científica.
+      </p>
+    <p class="uk-text-right">
+      <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+    </p>
+  </div>
+</div>
+
+<div id="sisBecas" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+    <h2 class="uk-modal-title">Sistemas de becas</h2>
+      <p>
+        1.- La asignación de becas, estipendios, descuentos o apoyos financieros se basan en una normativa interna, así como, en el establecimientos y la implementación de mecanismos en los que participa la unidad institucional de bienestar estudiantil.
+      </p>
+      <p>
+        2.- El programa cuenta con un cupo estable de becas disponibles para cada promoción de estudiantes.
+      </p>
+      <p>
+        3.- Las políticas relacionadas con el sistema de becas se refieren a la capacidad de responder a lo establecido en la normativa del sistema de educación superior ecuatoriano.
+      </p>
+      <p>
+        4.- El sistema de becas contribuye a mejorar las tasas de acceso a grupos históricamente excluidos, y se basa en los principios de equidad y calidad del marco normativo ecuatoriano.
+      </p>
+    <p class="uk-text-right">
+      <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+    </p>
+  </div>
+</div>
+
+<div id="segGraduados" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+    <h2 class="uk-modal-title">Seguimiento a graduados</h2>
+      <p>
+        1.- El sistema de seguimiento a graduados se estructura sobre la base de la investigación a graduados y empleadores, profesionales, actores de la academia y miembros de la sociedad.
+      </p>
+      <p>
+        2.- El sistema de seguimiento a graduados que aplica el programa contiene: i)instrumentos que permiten recolectar información periódica de las actividades profesionales o de educación posterior de sus graduados; ii) mecanismos que permiten analizar los hallazgo y generar insumos de mejora; y, iii) procesos para el tratamiento de las propuestas de mejora en las que participan actores clave del programa.
+      </p>
+      <p>
+        3.- Existe la política de atender a los requerimientos del seguimiento a graduados como parte de una política de aseguramiento de la calidad.
+      </p>
+      <p>
+        4.- El programa recibe retroalimentación y utiliza los resultados del sistema de seguimiento a graduados para analizar las experiencias favorables durante la formación académica de los estudiantes, y los aspectos que requieren mejorar, en particular, aquellos enfocados en el perfil de egreso y el programa académico.
+      </p>
+      <p>
+        5.- Existen mecanismos y canales de comunicación con estudiantes regulares y egresados para difundir los resultados del seguimiento a graduados.
+      </p>
+      <p>
+        6.- El seguimiento al proceso a graduados permite que las autoridades académicas y administrativas tomen decisiones encaminadas al mejoramiento del currículo y las prácticas educativas utilizadas en el programa.
+      </p>
+    <p class="uk-text-right">
+      <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+    </p>
+  </div>
+</div>
+
+<div id="perfEgreso" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+    <h2 class="uk-modal-title">Perfil de Egreso</h2>
+      <p>
+        1.- El proceso de elaboración/actualización del perfil de egreso considera la misión y objetivos del programa, así como los perfiles profesionales consultados; además, incluye la participación de actores relevantes en su revisión y validación; en particular: expertos académicos externos, organizaciones científicas o profesionales, y los empleadores.
+      </p>
+      <p>
+        2.- El perfil de egreso describe de manera clara y concreta los resultados de aprendizaje esperados para los estudiantes, considerando parámetros como, al menos: los contenidos disciplinares fundamentales del programa, los resultados de aprendizaje genéricos y la empleabilidad de los graduados.
+      </p>
+      <p>
+        3.- El perfil de egreso está sistemáticamente relacionado con el plan de estudios y la evaluación de los resultados de aprendizaje definidos retroalimenta al programa académico.
+      </p>
+      <p>
+        4.- El perfil de egreso ha considerado los resultados de aprendizaje en el ámbito de los dominios teóricos (teorías, leyes, sistemas conceptuales), metodológicos (métodos, procesos y procedimientos propios de la profesión) y técnicos instrumentales (técnicas e instrumentos), de tal manera que posibiliten el desarrollo de los resultados de aprendizaje esperados de los estudiantes.
+      </p>
+      <p>
+        5.- El perfil de egreso incorpora las teorías y los avances del campo disciplinar; así como las necesidades del entorno identificadas en los estudios de estado actual y prospectiva.
+      </p>
+      <p>
+        6.- Existen mecanismos de difusión del perfil de egreso a la comunidad académica y a la sociedad; y el perfil de egreso orienta a los estudiantes sobre su formación académica.
+      </p>
+    <p class="uk-text-right">
+      <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+    </p>
+  </div>
+</div>
+
+<div id="planEstudios" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+    <h2 class="uk-modal-title">Plan de Estudios</h2>
+      <p>
+        1.- Existe un proceso de revisión/actualización del plan de estudios que consideran la participación de académicos internos y/o externos al programa.
+      </p>
+      <p>
+        2.- El plan de estudios está sistemáticamente alineado con los objetivos del programa, las líneas de investigación vigentes, el cuerpo académico disponible y con los resultados de aprendizaje esperados en el perfil de egreso.
+      </p>
+      <p>
+        3.- El plan de estudios aborda contenidos disciplinares fundamentales para el campo específico en el que se encuentra clasificado el programa, que permiten desarrollar componentes curriculares y resultados de aprendizaje propios del programa.
+      </p>
+      <p>
+        4.- El plan de estudios considera la secuencialidad de los contenidos con niveles de complejidad progresivos que permitan la interconexión e interdependencia entre ellos.
+      </p>
+      <p>
+        5.- Los programas de estudio de asignaturas consideran la interrelación de la teoría, la práctica y la investigación, y se evidencian en la planificación microcurricular.
+      </p>
+    <p class="uk-text-right">
+      <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+    </p>
+  </div>
+</div>
+
+<div id="planifCurricular" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+    <h2 class="uk-modal-title">Planificacion microcurricular</h2>
+      <p>
+        1.- La planificación microcurricular de las materias/asignaturas es coherente con los objetivos esperados del plan de estudios.
+      </p>
+      <p>
+        2.- La planificación microcurricular está disponible de manera permanente para estudiantes y profesores del programa.
+      </p>
+      <p>
+        3.- Los programas de estudio de asignaturas consideran la interrelación de la teoría, la práctica y la investigación, y se evidencian en la planificación microcurricular.
+      </p>
+      <p>
+        4.- La planificación microcurricular describe y estructura en cada una de las asignaturas del plan de estudios, de manera clara y precisa, la contribución de los resultados de aprendizaje de la asignatura para alcanzar el perfil de egreso, los contenidos disciplinares y específicos necesarios, las metodologías de enseñanza aprendizaje, las referencias bibliográficas y materiales de consulta y los mecanismos de evaluación utilizados.
+      </p>
+    <p class="uk-text-right">
+      <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+    </p>
+  </div>
+</div>
+
+<div id="evseguimiento" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+    <h2 class="uk-modal-title">Evaluacion y seguimiento</h2>
+      <p>
+        1.- Existe una normativa interna de evaluación del aprendizaje de los estudiantes y mecanismos o procedimientos para el seguimiento y monitorización del avance de los estudiantes.
+      </p>
+      <p>
+        2.- La evaluación del aprendizaje se basa en la estandarización de núcleos de contenidos en las asignaturas, el proceso de enseñanza aprendizaje, competencias que tiene el personal académico para evaluar el aprendizaje y los recursos utilizados.
+      </p>
+      <p>
+        3.- La evaluación académica es guiada por estándares y mecanismos que aseguran que las evaluaciones realizadas por el personal académico están orientadas a medir el avance del aprendizaje de los estudiantes y alcanzar los resultados de aprendizaje.
+      </p>
+      <p>
+        4.- El personal académico del programa participa en el diseño de los instrumentos, procedimientos de medición y en el análisis de los resultados de la evaluación del aprendizaje para mejorar la efectividad del programa.
+      </p>
+      <p>
+        5.- El programa gestiona la documentación (reportes) sobre la evaluación del aprendizaje de los estudiantes, sistemáticamente, durante toda su formación académica.
+      </p>
+    <p class="uk-text-right">
+      <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+    </p>
+  </div>
+</div>
+
+<div id="grupInvestigacion" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+    <h2 class="uk-modal-title">Grupos de investigacion</h2>
+      <p>
+        1.- Las líneas de investigación relacionadas con el programa tienen grupos de investigación activos (que se conforman por el cuerpo académico del programa) y se relacionan con los objetivos del programa.
+      </p>
+      <p>
+        2.- Los ejes en los que se articula la investigación son coherentes con la formación académica y experiencia de la planta de profesores (de niveles educativos previos, como carreras de grado en la misma institución).
+      </p>
+      <p>
+        3.- La definición y revisión de las líneas de investigación se articula a las políticas editoriales, políticas de graduación y la gestión de los recursos para la investigación.
+      </p>
+      <p>
+        4.- Los grupos de investigación conformados por profesores del programa se encuentran activos; es decir, han realizado al menos una publicación en una revista indexada en el último año concluido antes del inicio del proceso; y se encuentran desarrollando un proyecto de investigación.
+      </p>
+    <p class="uk-text-right">
+      <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+    </p>
+  </div>
+</div>
+
+<div id="bibvirrepdig" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+    <h2 class="uk-modal-title">Bibliotecas virtuales y repositorios digitales</h2>
+      <p>
+        1.- El cuerpo académico y los estudiantes que conforman el programa acceden a bibliotecas virtuales y bases de datos relacionadas directamente con sus necesidades de investigación y formación académica.
+      </p>
+      <p>
+        2.- El programa da seguimiento y evalúa el uso de los recursos digitales de aprendizaje disponibles en las bibliotecas virtuales, haciendo especial énfasis en la utilidad y frecuencia de uso.
+      </p>
+      <p>
+        3.- La gestión de los repositorios digitales del programa permite la disponibilidad de trabajos de investigación, graduación y programas de las asignaturas que conforman el programa académico.
+      </p>
+    <p class="uk-text-right">
+      <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+    </p>
+  </div>
+</div>
+
+<div id="movAcademica" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+    <h2 class="uk-modal-title">Movilidad Academica</h2>
+      <p>
+        1.- El programa cuenta con convenios de cooperación para garantizar el intercambio y la movilidad de profesores y estudiantes en el marco de líneas, grupos, proyectos y estancias de investigación.
+      </p>
+      <p>
+        2.- El programa académico ha definido mecanismos que propician la movilidad académica, tales como la convalidación de créditos académicos/horas de clase, estrategias de internacionalización y graduación conjunta, y la organización de eventos académicos internacionales.
+      </p>
+      <p>
+        3.- El plan de estudios del programa académico está alineado a los mecanismos de movilidad académica de estudiantes.
+      </p>
+    <p class="uk-text-right">
+      <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+    </p>
+  </div>
+</div>
+
+<div id="partRedes" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+    <h2 class="uk-modal-title">Participacion en Redes</h2>
+      <p>
+        1.- El programa forma parte de redes de investigación, redes temáticas o grupos relacionados con su ámbito académico, en las cuales su participación es activa.
+      </p>
+      <p>
+        2.- Los acuerdos y convenios de cooperación de la institución, relacionados con el programa, son coherentes con sus objetivos estratégicos, misión y visión del programa.
+      </p>
+      <p>
+        3.- La planificación estratégica del programa establece líneas temáticas de cooperación y estrategias para internacionalizar el programa académico.
+      </p>
+    <p class="uk-text-right">
+      <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+    </p>
+  </div>
+</div>

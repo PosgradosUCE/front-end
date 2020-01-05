@@ -1,0 +1,655 @@
+<div class="uk-card uk-card-default uk-card-body">
+  <h3 class="uk-card-title">
+       <span class="md-title" >
+         <i class="fas fa-calculator fa-lg" style="color:#4285F4;"></i> Tablero cuantitativo
+       </span>
+  </h3>
+      <table border="1">
+
+        <tbody>
+        <tr>
+          <th>INFORMACION</th>
+          <th>CRITERIO</th>
+          <th>SUBCRITERIO</th>
+          <th>INDICADOR</th>
+          <th>FORMULA</th>
+          <th>VALORES</th>
+          <th>RESULTADO</th>
+          <th>ESTADO</th>
+        </tr>
+        <tr>
+          <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #AFP">Open</button>
+          <td>ACADEMIA</td>
+          <td>CUERPO ACADEMICO</td>
+          <td>Afinidad de formacion de posgrado</td>
+          <td><img src="../../../../assets/images/afp.png" alt=""></td>
+          <td>
+            <input type='text' nbInput fullWidth placeholder='PFA' [(ngModel)]='pfa' style="width: 80px;">
+            <input type='text' nbInput fullWidth placeholder='TP' [(ngModel)]='tpafp' style="width: 80px;">
+            <button *ngIf="authService.hasRole('ROLE_ADMIN');" (click)='afp()' style="width: 80px;">Calcular</button>
+          </td>
+          <td>
+            <p>
+              {{afps['afp']}}
+            </p>
+          </td>
+          <td>
+            <img src="{{semaforoafp}}" alt="" style="height: 120px; width: 80px;">
+          </td>
+        </tr>
+        <tr>
+          <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #CPA">Open</button>
+          <td>ACADEMIA</td>
+          <td>CUERPO ACADEMICO</td>
+          <td>Composicion de la planta academica</td>
+          <td>
+            <img src="../../../../assets/images/cpa.png" alt="">
+          </td>
+          <td>
+            <input type='text' nbInput fullWidth placeholder='PhDL' [(ngModel)]='phdl' style="width: 80px;">
+            <input type='text' nbInput fullWidth placeholder='MScL' [(ngModel)]='mscl' style="width: 80px;">
+            <input type='text' nbInput fullWidth placeholder='MSc' [(ngModel)]='msc' style="width: 80px;">
+            <input type='text' nbInput fullWidth placeholder='PhD' [(ngModel)]='phd' style="width: 80px;">
+            <input type='text' nbInput fullWidth placeholder='TP' [(ngModel)]='tpcpa' style="width: 80px;">
+            <button *ngIf="authService.hasRole('ROLE_ADMIN');" (click)='cpa()' style="width: 80px;">Calcular</button>
+          </td>
+          <td>
+            <p>
+              {{cpas['cpa']}}
+            </p>
+          </td>
+          <td><img src="{{semaforocpa}}" alt="" style="height: 120px; width: 80px;"></td>
+        </tr>
+        <tr>
+          <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #ACP">Open</button>
+          <td>ACADEMIA</td>
+          <td>CUERPO ACADEMICO</td>
+          <td>Actualizacion cientifica</td>
+          <td>
+            <img src="../../../../assets/images/acp.png" alt="">
+          </td>
+          <td>
+            <input type='text' nbInput fullWidth placeholder='ndad' [(ngModel)]='ndad' style="width: 80px;">
+            <input type='text' nbInput fullWidth placeholder='tp' [(ngModel)]='tpacp' style="width: 80px;">
+            <button *ngIf="authService.hasRole('ROLE_ADMIN');" (click)='acp()' style="width: 80px;">Calcular</button>
+          </td>
+          <td>
+            <p>
+              {{acps['acp']}}
+            </p>
+          </td>
+          <td>
+            <img src="{{semaforoacp}}" alt="" style="height: 120px; width: 80px;">
+          </td>
+        </tr>
+        <tr>
+          <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #PV">Open</button>
+          <td>ACADEMIA</td>
+          <td>CUERPO ACADEMICO</td>
+          <td>Profesores Visitantes</td>
+          <td>
+            <img src="../../../../assets/images/pv.png" alt="">
+          </td>
+          <td>
+            <input type='text' nbInput fullWidth placeholder='MScV' [(ngModel)]='mscv' style="width: 80px;">
+            <input type='text' nbInput fullWidth placeholder='PhDV' [(ngModel)]='phdv' style="width: 80px;">
+            <input type='text' nbInput fullWidth placeholder='TP' [(ngModel)]='tppv' style="width: 80px;">
+            <button *ngIf="authService.hasRole('ROLE_ADMIN');" (click)='pv()' style="width: 80px;">Calcular</button>
+          </td>
+          <td>
+            <p>
+              {{pvs['pv']}}
+            </p>
+          </td>
+          <td>
+            <img src="{{semaforopv}}" alt="" style="height: 120px; width: 80px;">
+          </td>
+        </tr>
+        <tr>
+          <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #TID">Open</button>
+<!---->
+          <td>ACADEMIA</td>
+          <td>CARRERA DOCENTE</td>
+          <td>Titularidad y dedicacion</td>
+          <td>
+            <img src="../../../../assets/images/tid.png" alt="">
+          </td>
+          <td>
+            <input type='text' nbInput fullWidth placeholder='PTC' [(ngModel)]='ptc' style="width: 80px;">
+            <input type='text' nbInput fullWidth placeholder='TP' [(ngModel)]='tptid' style="width: 80px;">
+            <button *ngIf="authService.hasRole('ROLE_ADMIN');" (click)='tid()' style="width: 80px;">Calcular</button>
+          </td>
+          <td>
+            <p>
+              {{tids['ptc']}}
+            </p>
+          </td>
+          <td>
+            <img src="{{semaforotid}}" alt="" style="height: 120px; width: 80px;">
+          </td>
+        </tr>
+        <tr>
+          <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #EP">Open</button>
+<!---->
+          <td>ACADEMIA</td>
+          <td>EFICIENCIA ACADEMICA</td>
+          <td>Estudiantes por profesor</td>
+          <td>
+            <img src="../../../../assets/images/ep.png" alt="">
+          </td>
+          <td>
+            <input type='text' nbInput fullWidth placeholder='NE' [(ngModel)]='ne' style="width: 80px;">
+            <input type='text' nbInput fullWidth placeholder='TP' [(ngModel)]='tpep' style="width: 80px;">
+            <button *ngIf="authService.hasRole('ROLE_ADMIN');" (click)='ep()' style="width: 80px;">Calcular</button>
+          </td>
+          <td>
+            <p>
+              {{eps['ep']}}
+            </p>
+          </td>
+          <td>
+            <img src="{{semaforoep}}" alt="" style="height: 120px; width: 80px;">
+          </td>
+        </tr>
+        <tr>
+          <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #TPM">Open</button>
+<!---->
+          <td>ACADEMIA</td>
+          <td>EFICIENCIA ACADEMICA</td>
+          <td>Tasa de permanencia</td>
+          <td>
+            <img src="../../../../assets/images/tpm.png" alt="">
+          </td>
+          <td>
+            <input type='text' nbInput fullWidth placeholder='TER' [(ngModel)]='ter' style="width: 80px;">
+            <input type='text' nbInput fullWidth placeholder='TE' [(ngModel)]='tetpm' style="width: 80px;">
+            <button *ngIf="authService.hasRole('ROLE_ADMIN');" (click)='tpm()' style="width: 80px;">Calcular</button>
+          </td>
+          <td>
+            <p>
+              {{tpms['tpm']}}
+            </p>
+          </td>
+          <td>
+            <img src="{{semaforotpm}}" alt="" style="height: 120px; width: 80px;">
+          </td>
+        </tr>
+        <tr>
+          <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #TT">Open</button>
+<!---->
+          <td>ACADEMIA</td>
+          <td>EFICIENCIA ACADEMICA</td>
+          <td>Tasa de titulacion</td>
+          <td>
+            <img src="../../../../assets/images/tt.png" alt="">
+          </td>
+          <td>
+            <input type='text' nbInput fullWidth placeholder='TET' [(ngModel)]='tet' style="width: 80px;">
+            <input type='text' nbInput fullWidth placeholder='TE' [(ngModel)]='tett' style="width: 80px;">
+            <button *ngIf="authService.hasRole('ROLE_ADMIN');" (click)='tt()' style="width: 80px;">Calcular</button>
+          </td>
+          <td>
+            <p>
+              {{tts['tt']}}
+            </p>
+          </td>
+          <td>
+            <img src="{{semaforott}}" alt="" style="height: 120px; width: 80px;">
+          </td>
+        </tr>
+        <tr>
+          <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #IDI">Open</button>
+<!---->
+          <td>INVESTIGACION DESARROLLO E INNOVACION (I + D + I)</td>
+          <td>CONDICIONES</td>
+          <td>
+            I + D colaborativo interno
+          </td>
+          <td>
+            <img src="../../../../assets/images/idi.png" alt="">
+          </td>
+          <td>
+            <input type='text' nbInput fullWidth placeholder='PP' [(ngModel)]='pp' style="width: 80px;">
+            <input type='text' nbInput fullWidth placeholder='PE' [(ngModel)]='pe' style="width: 80px;">
+            <input type='text' nbInput fullWidth placeholder='TP' [(ngModel)]='tpidi' style="width: 80px;">
+            <button *ngIf="authService.hasRole('ROLE_ADMIN');" (click)='idi()' style="width: 80px;">Calcular</button>
+          </td>
+          <td>
+            <p>
+              {{idis['idi']}}
+            </p>
+          </td>
+          <td>
+            <img src="{{semaforoidi}}" alt="" style="height: 120px; width: 80px;">
+          </td>
+        </tr>
+        <tr>
+          <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #CoopRd">Open</button>
+<!---->
+          <td>INVESTIGACION DESARROLLO E INNOVACION (I + D + I)</td>
+          <td>CONDICIONES</td>
+          <td>Cooperacion externa y reedes de investigacion</td>
+          <td>
+            <img src="../../../../assets/images/cooprd.png" alt="">
+          </td>
+          <td>
+            <input type='text' nbInput fullWidth placeholder='TACL' [(ngModel)]='tacl' style="width: 80px;">
+            <input type='text' nbInput fullWidth placeholder='TAC' [(ngModel)]='tac' style="width: 80px;">
+            <button *ngIf="authService.hasRole('ROLE_ADMIN');" (click)='cooprd()' style="width: 80px;">Calcular</button>
+          </td>
+          <td>
+            <p>
+              {{cooprds['cooprd']}}
+            </p>
+          </td>
+          <td>
+            <img src="{{semaforocooprd}}" alt="" style="height: 120px; width: 80px;">
+          </td>
+        </tr>
+        <tr>
+          <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #IAA">Open</button>
+<!---->
+          <td>AMBIENTE CONSTITUCIONAL</td>
+          <td>RECURSOS DE APRENDIZAJE</td>
+          <td>Ambientes de aprendizaje</td>
+          <td>
+            <img src="../../../../assets/images/iaa.png" alt="">
+          </td>
+          <td>
+            <input type='text' nbInput fullWidth placeholder='FUN' [(ngModel)]='fun' style="width: 80px;">
+            <input type='text' nbInput fullWidth placeholder='EQ' [(ngModel)]='eq' style="width: 80px;">
+            <input type='text' nbInput fullWidth placeholder='DIS' [(ngModel)]='dis' style="width: 80px;">
+            <button *ngIf="authService.hasRole('ROLE_ADMIN');" (click)='iaa()' style="width: 80px;">Calcular</button>
+
+            <!---->
+          </td>
+          <td>
+            <p>
+              {{iaas['iaa']}}
+            </p>
+<!---->
+          </td>
+          <td>
+            <img src="{{semaforoiaa}}" alt="" style="height: 120px; width: 80px;">
+          </td>
+        </tr>
+  </tbody>
+      </table>
+</div>
+
+
+<div id="AFP" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+    <h2 class="uk-modal-title">Afinidad de formacion de posgrado</h2>
+    <p>
+      AFP: Afinidad de formacion de posgrado
+    </p>
+    <p>
+      PFA: Total de profesores con formacion de posgrado relatica afin a las lineas de investigacion o sub-areas disciplinares del programa academico
+    </p>
+    <p>
+      TP: Total de profresores del programa
+    </p>
+    <p>
+      Este indicador mide, en términos del porcentaje del cuerpo académico que conforma
+      el programa, la relación de afinidad existente entre la formación académica del
+      grupo de profesores del programa de posgrado y las áreas disciplinares del programa
+      académico. Para el efecto, se considera a la formación de posgrado desde el nivel de
+      maestría o PhD, dependiendo del tipo de programa (I o II) y de sus objetivos
+      estratégicos.
+      Esta relación de afinidad contribuye a la calidad de la educación, la producción
+      académico científica y el cumplimiento de las funciones sustantivas de la institución
+      de educación superior en el marco del programa de posgrado. La afinidad se
+      manifiesta en los profesores que tienen un adecuado conocimiento disciplinar, la
+      comprensión adecuada de los conceptos centrales, herramientas de investigación y
+      estructuras de sus disciplinas de conocimiento, y que demuestran sus conocimientos
+      a través de la investigación, el análisis crítico y la síntesis.
+    </p>
+    <p class="uk-text-right">
+      <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+    </p>
+  </div>
+</div>
+<!---->
+<div id="CPA" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+    <h2 class="uk-modal-title">Composicion de la planta academica</h2>
+    <p>
+      CPA: Composicion de la planta academica
+    </p>
+    <p>
+      PhDL: Total de profesores con formación académica de PhD obtenida en una
+      institución de educación superior de: i) listado de universidades de excelencia;
+      ii) listado de IES para el programa de becas para doctorado (PhD) para
+      profesores de universidades y escuelas politécnicas; o iii) listado de IES en los
+      rankings de universidades de Latinoamérica.
+    </p>
+    <p>
+      MScL: Total de profesores con formación académica de MSc, especialidad en
+      áreas de ciencias de la salud, obtenida en el listado de universidades de
+      excelencia o en IES que constan en rankings internacionales de Latinoamérica.
+    </p>
+    <p>
+      PhD: Total de profesores con formación académica de PhD no incluida en
+      PhDL.
+    </p>
+    <p>
+      MSc: Total de profesores con formación académica de MsC, especialidad en
+      áreas de ciencias de la salud, no incluida en MScL.
+    </p>
+    <p>
+      TP: Total de profesores del programa.
+    </p>
+    <p>
+      Este indicador mide, en términos del porcentaje, la composición del cuerpo académico
+      que conforma el programa, de acuerdo a las instituciones de educación superior en las
+      que obtuvieron su formación académica. Considerando que la articulación de la política
+      pública en educación superior y la evaluación de la calidad, tienen una relación
+      significativa con la formación académica del cuerpo de profesores de la IES, sus
+      carreras y programas, el objetivo de este indicador es incentivar la formación
+      académica, y por ende, la planificación de la formación/selección o captación de
+      profesores, en/de instituciones de educación superior que constan en el listado de
+      Universidades de Excelencia de la SENESCYT10 o de IES que tienen impacto y
+      visibilidad regional.
+      La composición de la planta académica es un parámetro importante para la
+      internacionalización. Asimismo, se busca la diversificación de formación, lo que
+      contribuye a mejorar la calidad de la educación, disminuyendo la endogeneidad y las
+      barreras a la internacionalización. Para el efecto, se pondera con un valor adicional de
+      0,5 a profesores cuya formación académica de PhD ha sido obtenida en las IES del
+      listado; y de 0,25 en el caso de formación de maestría o especialidad en ciencias de la
+      salud.
+      Finalmente, en concordancia con el indicador Afinidad de formación de posgrado, se
+      contabiliza en este indicador, únicamente a los profesores cuya mayor formación
+      académica de posgrado es igual o mayor que el nivel del programa de posgrado. Es
+      decir, para el caso de programas de Tipo II, en particular, el de programas de formación
+      doctoral, en donde no se contabiliza a profesores cuyo grado máximo académico es el
+      de maestría.
+    </p>
+    <p class="uk-text-right">
+      <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+    </p>
+  </div>
+</div>
+<!---->
+<div id="ACP" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+    <h2 class="uk-modal-title">Actualizacion Cientifica</h2>
+    <p>
+      ACP: Actualizacion Cientifica
+    </p>
+    <p>
+      NDAD: Total de profesores que han asistido a eventos de actualización
+      científica afín al programa.
+    </p>
+    <p>
+      TP: Total de profesores que han impartido clases en el programa durante el
+      periodo de evaluación.
+    </p>
+    <p>
+      Este indicador evalúa la participación de los profesores en eventos de actualización
+      científica o disciplinar afín al área de investigación o docencia de cada profesor, sin
+      que esto entre en contradicción con las sub-áreas académicas fundamentales
+      relacionadas con el programa, ni con la formación de posgrado del profesor.
+      También es necesario que los profesores se encuentren capacitados para responder a
+      las funcionalidades técnicas y las potencialidades didácticas de los entornos
+      virtuales, como paso previo para su integración significativa en las propuestas
+      curriculares.
+    </p>
+    <p class="uk-text-right">
+      <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+    </p>
+  </div>
+</div>
+<!---->
+<div id="PV" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+    <h2 class="uk-modal-title">Profesores Visitantes</h2>
+    <p>
+      PV: Profesores viitantes
+    </p>
+    <p>
+      MsCV: Total de profesores visitantes con formación de maestría.
+    </p>
+    <p>
+      PhDV: Total de profesores visitantes con formación de doctorado (PhD).
+    </p>
+    <p>
+      TP: Total de profesores que conforman el programa
+    </p>
+    <p>
+      Este indicador evalúa la conformación de la planta académica con profesores de
+      instituciones de educación superior nacionales e internacionales diferentes a las del
+      programa evaluado. La inclusión de profesores visitantes a programas académicos tiene
+      múltiples beneficios: i) para estudiantes, tales como por ejemplo, las oportunidades de
+      continuación de estudios, la especialización en ciertas sub-áreas de conocimiento y las
+      oportunidades de participar en proyectos de investigación; ii) para profesores: visitas
+      académicas, conformación de redes temáticas, grupos de investigación, entre otros. En
+      definitiva, resulta de suma importancia para fortalecer la calidad de la planta académica
+      que conforma el programa.
+    </p>
+    <p class="uk-text-right">
+      <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+    </p>
+  </div>
+</div>
+<!---->
+<div id="TID" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+    <h2 class="uk-modal-title">Titularidad y dedicacion</h2>
+    <p>
+      𝐓𝐈𝐃: Titularidad y dedicación
+    </p>
+    <p>
+      𝐏𝐓𝐂: Total de profesores titulares con dedicación a tiempo completo
+    </p>
+    <p>
+      TP: Total de profesores que conforman el programa
+    </p>
+    <p>
+      Este indicador mide el porcentaje de profesores titulares (principales, agregados o
+      auxiliares) con dedicación a tiempo completo. Este conjunto de profesores,
+      conforma la base de la planta académica del programa y por tanto es fundamental, si
+      bien no se evalúa en este indicador, su relación de afinidad con los objetivos,
+      resultados esperados, líneas y grupos de investigación y el programa académico.
+    </p>
+    <p class="uk-text-right">
+      <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+    </p>
+  </div>
+</div>
+<!---->
+<div id="EP" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+    <h2 class="uk-modal-title">Estudiantes por profesor</h2>
+    <p>
+      𝐄𝐏: Estudiantes por profesor
+    </p>
+    <p>
+      𝐍𝐄: Total de estudiantes del programa.
+    </p>
+    <p>
+      𝐓𝐏: Total de profesores que conforman el personal académico del programa.
+    </p>
+    <p>
+      Este indicador permite analizar la disponibilidad de profesores para respaldar las
+      actividades académicas de los estudiantes; en particular, relacionadas con las
+      funciones sustantivas: investigación, docencia y vinculación con la sociedad.
+    </p>
+    <p class="uk-text-right">
+      <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+    </p>
+  </div>
+</div>
+<!---->
+<div id="TPM" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+    <h2 class="uk-modal-title">Tasa de permanencia</h2>
+    <p>
+      𝐓𝐏𝐌: Tasa de permanencia
+    </p>
+    <p>
+      𝐓𝐄𝐑: Total de estudiantes que se ingresaron en la cohorte que se determine, que
+      concluyeron la programación académica en el tiempo planificado por el
+      programa.
+    </p>
+    <p>
+      𝑻𝑬: Total de estudiantes de la cohorte definida.
+    </p>
+    <p>
+      Este indicador mide la retención y continuación de los estudiantes del programa.
+      Para el efecto se definen dos cohortes para examinar el desempeño académico y el
+      avance de estudiantes a lo largo del programa académico.
+    </p>
+    <p class="uk-text-right">
+      <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+    </p>
+  </div>
+</div>
+<!---->
+<div id="TT" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+    <h2 class="uk-modal-title">Tasa de graduacion</h2>
+    <p>
+      𝐓𝐓: Tasa de graduación
+    </p>
+    <p>
+      𝐓𝐄𝐓: Total de estudiantes de la cohorte analizada que concluyeron el proyecto
+      de graduación o aprobaron el examen complexivo en un plazo menor o igual al
+      planificado para su graduación en condiciones normales.
+    </p>
+    <p>
+      𝑻𝑬: Total de estudiantes de la cohorte definida.
+    </p>
+    <p>
+      Este indicador la tasa de graduación de estudiantes del programa, en el periodo
+      establecido en la normativa interna de la institución, en el marco de los plazos
+      establecidos por el marco normativo del sistema de educación superior. La tasa de
+      graduación es el coeficiente que expresa la relación del número de estudiantes
+      graduados con el número de estudiantes que iniciaron el programa, en una misma
+      cohorte.
+    </p>
+    <p class="uk-text-right">
+      <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+    </p>
+  </div>
+</div>
+<!---->
+<div id="IDI" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+    <h2 class="uk-modal-title">I+D colaborativo interno</h2>
+    <p>
+      𝑰 + 𝑫 + 𝒊: relación per cápita de proyectos de investigación, desarrollo o
+      innovación por profesores del programa.
+    </p>
+    <p>
+      𝑷𝑷: Total de proyectos de investigación, o desarrollo e innovación que están en
+      desarrollo durante el periodo de evaluación, en los que participan únicamente
+      profesores.
+    </p>
+    <p>
+      𝑷𝑬: Total de proyectos de investigación, o desarrollo e innovación en los que
+      participan estudiantes colaborando con profesores durante el periodo de
+      evaluación.
+    </p>
+    <p>
+      𝑻𝑷: Total de profesores del programa.
+    </p>
+    <p>
+      Este indicador tiene como objetivo evaluar la productividad académica per cápita, de
+      proyectos que aún no se publican en revistas indexadas, durante el periodo de
+      evaluación. Se consideran para el efecto, los proyectos en ejecución de I+D interno, así
+      como los resultados de innovación que se desarrollan internamente, con la participación
+      de profesores de (grupos de investigación) y de estudiantes del programa. El numerador
+      del indicador considera dos tipos de proyectos investigación/desarrollo o innovación: i)
+      Proyectos desarrollados únicamente por profesores; y ii) Proyectos desarrollados con la
+      participación de estudiantes. Finalmente, para el caso de proyectos de innovación, en los
+      que participan estudiantes, se consideran como necesarios, dos parámetros: i) para
+      proteger los resultados del proyecto, que no necesariamente deviene en una publicación
+      científica o académica, se debe utilizar un mecanismo de protección intelectual, como:
+      marca, patentes, lead time, entre otros; y, ii) que el resultado o resultados del proyecto
+      tenga una articulación concreta con la producción, es decir, que se utilice en alguna
+      empresa o sector industrial en la producción.
+      Asimismo, es importante que los proyectos de investigación se formulen considerando
+      mecanismos que permitan evaluar y monitorizar el impacto del desarrollo de I+D e
+      innovación producido por el proyecto, así como, los resultados de investigación en
+      términos de publicaciones.
+    </p>
+    <p class="uk-text-right">
+      <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+    </p>
+  </div>
+</div>
+<!---->
+<div id="CoopRd" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+    <h2 class="uk-modal-title">Cooperacion externa y redes de investigacion</h2>
+    <p>
+      𝑪𝒐𝒐𝒑𝑹𝒅: Cooperación externa y redes de investigación.
+    </p>
+    <p>
+      𝑻𝑨𝑪𝑳: Total de artículos académicos indexados en Scopus o ISIS Web
+      desarrollados en cooperación/coautoría14 con profesores del programa y de otras
+      instituciones de educación superior, en el marco de acuerdos interinstitucionales
+      de cooperación en I+D y redes de investigación.
+    </p>
+    <p>
+      𝑻𝑨𝑪: Total de artículos académicos de la planta académica del programa.
+    </p>
+    <p>
+      Este indicador mide el desempeño de la institución a través del programa evaluado, en
+      los resultados obtenidos en la producción científica desarrollada en colaboración o
+      cooperación institucionalizada en el marco de acuerdos de cooperación. Las instituciones
+      externas están representados por los miembros de la sociedad que
+      requieren satisfacer una necesidad a través del apoyo de la academia, tales como:
+      agentes públicos (Relativos al estado y sus formas de organización, gobierno, GAD,
+      municipios, entre otros), laboratorios públicos de I+D+i, agentes privados (sectores
+      industriales y empresariales), y organizaciones científicas, académicas o profesionales
+      no gubernamentales. El indicador permite calcular el porcentaje de artículos
+      desarrollados en colaboración, para el desarrollo de proyectos de I+D+i, que se
+      relacionan con las líneas de investigación en las que participa el programa, y por ende,
+      en la que son fundamentales los profesores que conforman el programa.
+    </p>
+    <p class="uk-text-right">
+      <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+    </p>
+  </div>
+</div>
+<!---->
+<div id="IAA" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+    <h2 class="uk-modal-title">Ambientes de aprendizaje</h2>
+    <p>
+      𝑰𝑨𝑨: Índice de valoración de ambientes de aprendizaje.
+    </p>
+    <p>
+      𝑭𝑼𝑵: Funcionalidad de ambientes de aprendizaje.
+    </p>
+    <p>
+      𝑬𝑸: Equipamiento de ambientes de aprendizaje.
+    </p>
+    <p>
+      𝑫𝑰𝑺 : Disponibilidad de ambientes de aprendizaje.
+    </p>
+    <p>
+      Este indicador evalúa a través de tres parámetros los ambientes de aprendizaje
+      utilizados por la institución en el desarrollo del programa académico. En tal sentido,
+      dependiendo del área de conocimiento del programa de posgrado y del tipo de
+      programa, estos parámetros genéricos pueden variar o desarrollarse, con base en lo
+      siguiente:
+      i. Funcionalidad: se refiere a la existencia de software especializado requerido
+      para el desarrollo del programa académico (por ejemplo, análisis de datos) o
+      de las condiciones necesarias para prácticas específicas.
+      ii. Equipamiento: aborda la existencia de las condiciones y características de
+      los equipos, mobiliario e insumos de cada uno de los ambientes de
+      aprendizaje.
+      iii. Disponibilidad: se refiere a la capacidad instalada, a través de la relación
+      numérica calculable entre la cantidad de equipos, mobiliario e insumos
+      disponibles y el número de estudiantes que hacen uso de los ambientes de
+      aprendizaje.
+    </p>
+    <p class="uk-text-right">
+      <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+    </p>
+  </div>
+</div>
+<!---->
